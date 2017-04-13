@@ -1,3 +1,6 @@
+'''This module takes in English Premier League results data and calculates
+longest amount of time teams stay in the same position
+'''
 
 import math
 from datetime import timedelta
