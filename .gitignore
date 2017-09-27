@@ -3,3 +3,4 @@
 *.pyc
 premier-league-holding-steady-league-table/data/
 settings.cfg
+.envrc
