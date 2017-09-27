@@ -32,6 +32,10 @@ func_mapping = {
 }
 
 
+def not_implemented(*args, **kwargs):
+    return 'not implemented'
+
+
 # ---------
 
 # ArgParse Section
@@ -40,8 +44,8 @@ parser = argparse.ArgumentParser()
 # Command Line Arguments
 parser.add_argument(
     'operation',
-    choices=['add', 'sub', 'mult', 'div'],
-    help='operation to perform',
+    # choices=['add', 'sub', 'mult', 'div'], # the right way to do this
+    help='operation to perform (add, sub, mult, div)',
 )
 parser.add_argument(
     'x',
@@ -55,6 +59,9 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
-answer = func_mapping[args.operation](args.x, args.y)
+answer = func_mapping.get(
+    args.operation,
+    not_implemented
+)(args.x, args.y)
 
 print(answer)
